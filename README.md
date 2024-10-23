@@ -1,7 +1,7 @@
 # Week 4 Assignment
 
 ## Using GitHub Classroom to Submit Homework:
-here is the homework test case material: [5_IntroToProgramming_TestCases.pptx](https://github.com/user-attachments/files/17487144/5_IntroToProgramming_TestCases.pptx)
+here is the homework test case material: [Week4_HW_TestCase.pptx](https://github.com/user-attachments/files/17487462/Week4_HW_TestCase.pptx)
 1. **Accept the Invitation Link**
    - You will receive an invitation link to join the GitHub Classroom. Click on the link to accept the invitation.
    - ![Invitation](https://github.com/user-attachments/assets/8379b460-b13d-4835-abfe-737f237aef12)
@@ -20,3 +20,4 @@ here is the homework test case material: [5_IntroToProgramming_TestCases.pptx](h
 ![image](https://github.com/user-attachments/assets/d8b76078-8715-4666-86d4-853319056275)
 6.**You can view your correct/incorrect answers through the Autograding report**
 ![image](https://github.com/user-attachments/assets/48b59713-f39a-4dee-ba13-cd0a6c0afe5a)
+
