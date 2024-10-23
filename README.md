@@ -1,7 +1,7 @@
 # Week 4 Assignment
 
 ## Using GitHub Classroom to Submit Homework:
-here is the homework test case material: [Week4_HW_TestCase.pptx](https://github.com/user-attachments/files/17487462/Week4_HW_TestCase.pptx)
+Here is the homework test case material: [Week4_HW_TestCase.pptx](https://github.com/user-attachments/files/17487462/Week4_HW_TestCase.pptx)
 1. **Accept the Invitation Link**
    - You will receive an invitation link to join the GitHub Classroom. Click on the link to accept the invitation.
    - ![Invitation](https://github.com/user-attachments/assets/8379b460-b13d-4835-abfe-737f237aef12)
