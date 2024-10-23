@@ -1,0 +1,305 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: average
+      id: average
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: average
+        setup-command: ''
+        command: gcc -o hw4-1 hw4-1.c && ./hw4-1
+        input: -10 -10 -20
+        expected-output: Average is -13
+        comparison-method: contains
+        timeout: 10
+        max-score: 5
+    - name: average2
+      id: average2
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: average2
+        setup-command: ''
+        command: gcc -o hw4-1 hw4-1.c && ./hw4-1
+        input: 56 19 24
+        expected-output: Average is 33
+        comparison-method: contains
+        timeout: 10
+        max-score: 5
+    - name: positive
+      id: positive
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: positive
+        setup-command: ''
+        command: gcc -o hw4-2 hw4-2.c && ./hw4-2
+        input: '20'
+        expected-output: Positive
+        comparison-method: contains
+        timeout: 10
+        max-score: 5
+    - name: negative
+      id: negative
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: negative
+        setup-command: ''
+        command: gcc -o hw4-2 hw4-2.c && ./hw4-2
+        input: '-20'
+        expected-output: Negative or zero
+        comparison-method: contains
+        timeout: 10
+        max-score: 5
+    - name: entropy
+      id: entropy
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: entropy
+        setup-command: ''
+        command: gcc -o hw4-3 hw4-3.c -lm && ./hw4-3
+        input: '0.3'
+        expected-output: '0.881291'
+        comparison-method: contains
+        timeout: 10
+        max-score: 3
+    - name: entropy2
+      id: entropy2
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: entropy2
+        setup-command: ''
+        command: gcc -o hw4-3 hw4-3.c -lm && ./hw4-3
+        input: '0.878'
+        expected-output: '0.535083'
+        comparison-method: contains
+        timeout: 10
+        max-score: 3
+    - name: entropy3
+      id: entropy3
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: entropy3
+        setup-command: ''
+        command: gcc -o hw4-3 hw4-3.c -lm && ./hw4-3
+        input: '0.1'
+        expected-output: '0.468996'
+        comparison-method: contains
+        timeout: 10
+        max-score: 4
+    - name: larger
+      id: larger
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: larger
+        setup-command: ''
+        command: gcc -o hw4-4 hw4-4.c  &&./hw4-4
+        input: 10 20
+        expected-output: '20'
+        comparison-method: contains
+        timeout: 10
+        max-score: 3
+    - name: larger2
+      id: larger2
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: larger2
+        setup-command: ''
+        command: gcc -o hw4-4 hw4-4.c  &&./hw4-4
+        input: -10 -15
+        expected-output: '-10'
+        comparison-method: contains
+        timeout: 10
+        max-score: 3
+    - name: larger3
+      id: larger3
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: larger3
+        setup-command: ''
+        command: gcc -o hw4-4 hw4-4.c  &&./hw4-4
+        input: 453 126
+        expected-output: '453'
+        comparison-method: contains
+        timeout: 10
+        max-score: 4
+    - name: advpositive
+      id: advpositive
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: advpositive
+        setup-command: ''
+        command: gcc -o ahw4-1 ahw4-1.c  &&./ahw4-1
+        input: '10'
+        expected-output: 10 is a positive number
+        comparison-method: contains
+        timeout: 10
+        max-score: 3
+    - name: advnegative
+      id: advnegative
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: advnegative
+        setup-command: ''
+        command: gcc -o ahw4-1 ahw4-1.c  &&./ahw4-1
+        input: "-20"
+        expected-output: "-20 is a negative number"
+        comparison-method: contains
+        timeout: 10
+        max-score: 3
+    - name: advnzero
+      id: advnzero
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: advnzero
+        setup-command: ''
+        command: gcc -o ahw4-1 ahw4-1.c  &&./ahw4-1
+        input: "0"
+        expected-output: "You entered zero"
+        comparison-method: contains
+        timeout: 10
+        max-score: 4
+    - name: advmaxval
+      id: advmaxval
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: advmaxval
+        setup-command: ''
+        command: gcc -o ahw4-2 ahw4-2.c  &&./ahw4-2
+        input: -10 -20 -3
+        expected-output: Max is -3
+        comparison-method: contains
+        timeout: 10
+        max-score: 5
+    - name: advmaxval2
+      id: advmaxval2
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: advmaxval2
+        setup-command: ''
+        command: gcc -o ahw4-2 ahw4-2.c  &&./ahw4-2
+        input: 22 28 10
+        expected-output: Max is 28
+        comparison-method: contains
+        timeout: 10
+        max-score: 5
+    - name: advquadratic
+      id: advquadratic
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: advquadratic
+        setup-command: ''
+        command: gcc -o ahw4-3 ahw4-3.c -lm &&./ahw4-3
+        input: -1 -2 9
+        expected-output: |
+          Input is a=-1.000000 b=-2.000000 c=9.000000:
+          Output should be -4.162278 and 2.162278
+        comparison-method: contains
+        timeout: 10
+        max-score: 3
+    - name: advquadratic2
+      id: advquadratic2
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: advquadratic2
+        setup-command: ''
+        command: gcc -o ahw4-3 ahw4-3.c -lm &&./ahw4-3
+        input: 0 1 2
+        expected-output: |
+          Input is a=0.000000 b=1.000000 c=2.000000:
+          Output should be -2.000000
+        comparison-method: contains
+        timeout: 10
+        max-score: 3
+    - name: advquadratic3
+      id: advquadratic3
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: advquadratic3
+        setup-command: ''
+        command: gcc -o ahw4-3 ahw4-3.c -lm &&./ahw4-3
+        input: 8 24 25
+        expected-output: |
+          Input is a=8.000000 b=24.000000 c=25.000000:
+          The real solution does not exist
+        comparison-method: contains
+        timeout: 10
+        max-score: 4
+    - name: meal1
+      id: meal1
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: meal1
+        setup-command: ''
+        command: gcc -o hw4-5 hw4-5.c  && ./hw4-5
+        input: 165 65
+        expected-output: |
+          Height? Weight? Ideal weight = 59.895000
+          Let's reduce sweets
+        comparison-method: contains
+        timeout: 10
+        max-score: 3
+    - name: meal2
+      id: meal2
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: meal2
+        setup-command: ''
+        command: gcc -o hw4-5 hw4-5.c  && ./hw4-5
+        input: 180 69
+        expected-output: |
+          Height? Weight? Ideal weight = 71.279999 
+          Go for it
+        comparison-method: contains
+        timeout: 10
+        max-score: 3
+    - name: meal3
+      id: meal3
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: meal3
+        setup-command: ''
+        command: gcc -o hw4-5 hw4-5.c  && ./hw4-5
+        input: 158 48.5
+        expected-output: |
+          Ideal weight = 54.920799 
+          Eat some more
+        comparison-method: contains
+        timeout: 10
+        max-score: 4
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        AVERAGE_RESULTS: "${{steps.average.outputs.result}}"
+        AVERAGE2_RESULTS: "${{steps.average2.outputs.result}}"
+        POSITIVE_RESULTS: "${{steps.positive.outputs.result}}"
+        NEGATIVE_RESULTS: "${{steps.negative.outputs.result}}"
+        ENTROPY_RESULTS: "${{steps.entropy.outputs.result}}"
+        ENTROPY2_RESULTS: "${{steps.entropy2.outputs.result}}"
+        ENTROPY3_RESULTS: "${{steps.entropy3.outputs.result}}"
+        LARGER_RESULTS: "${{steps.larger.outputs.result}}"
+        LARGER2_RESULTS: "${{steps.larger2.outputs.result}}"
+        LARGER3_RESULTS: "${{steps.larger3.outputs.result}}"
+        ADVPOSITIVE_RESULTS: "${{steps.advpositive.outputs.result}}"
+        ADVNEGATIVE_RESULTS: "${{steps.advnegative.outputs.result}}"
+        ADVNZERO_RESULTS: "${{steps.advnzero.outputs.result}}"
+        ADVMAXVAL_RESULTS: "${{steps.advmaxval.outputs.result}}"
+        ADVMAXVAL2_RESULTS: "${{steps.advmaxval2.outputs.result}}"
+        ADVQUADRATIC_RESULTS: "${{steps.advquadratic.outputs.result}}"
+        ADVQUADRATIC2_RESULTS: "${{steps.advquadratic2.outputs.result}}"
+        ADVQUADRATIC3_RESULTS: "${{steps.advquadratic3.outputs.result}}"
+        MEAL1_RESULTS: "${{steps.meal1.outputs.result}}"
+        MEAL2_RESULTS: "${{steps.meal2.outputs.result}}"
+        MEAL3_RESULTS: "${{steps.meal3.outputs.result}}"
+      with:
+        runners: average,average2,positive,negative,entropy,entropy2,entropy3,larger,larger2,larger3,advpositive,advnegative,advnzero,advmaxval,advmaxval2,advquadratic,advquadratic2,advquadratic3,meal1,meal2,meal3
