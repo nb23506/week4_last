@@ -10,32 +10,11 @@
    - After accepting the invitation, click the link provided to access your repository.
    - ![Repository](https://github.com/user-attachments/assets/e3f80e25-bc79-4142-97f9-6423bc252799)
 
-3. **Follow the Instructions Below:**
+3. Homewotk content
 
-   ### File Submissions:
-   
-   1. **hw4-1.c**
+[5_IntroToProgramming_TestCases.pptx](https://github.com/user-attachments/files/17487144/5_IntroToProgramming_TestCases.pptx)
 
-
-   2. **hw4-2.c**
-
-   3. **hw4-3.c**
-
-
-   4. **hw4-4.c**
-
-
-   5. **hw4-5.c**
-
-
-   6. **ahw4-1.c**
-
-
-   7. **ahw4-2.c**
-
-
-   8. **hw4-3.c**
-    
-
-
+4. after you complete the assignment, please check your code, by clicking the Actoins, 
  
+![image](https://github.com/user-attachments/assets/1a09c71f-af4d-42f3-9c05-f68de38b9f2c)
+![image](https://github.com/user-attachments/assets/42058b4f-0e1f-4c06-b5f6-ff21afe595bd)
