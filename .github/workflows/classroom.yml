@@ -72,7 +72,7 @@ jobs:
         expected-output: '0.881291'
         comparison-method: contains
         timeout: 10
-        max-score: 3
+        max-score: 5
     - name: entropy2
       id: entropy2
       uses: classroom-resources/autograding-io-grader@v1
@@ -84,7 +84,7 @@ jobs:
         expected-output: '0.535083'
         comparison-method: contains
         timeout: 10
-        max-score: 3
+        max-score: 5
     - name: entropy3
       id: entropy3
       uses: classroom-resources/autograding-io-grader@v1
@@ -108,7 +108,7 @@ jobs:
         expected-output: '20'
         comparison-method: contains
         timeout: 10
-        max-score: 3
+        max-score: 5
     - name: larger2
       id: larger2
       uses: classroom-resources/autograding-io-grader@v1
@@ -120,7 +120,7 @@ jobs:
         expected-output: '-10'
         comparison-method: contains
         timeout: 10
-        max-score: 3
+        max-score: 5
     - name: larger3
       id: larger3
       uses: classroom-resources/autograding-io-grader@v1
@@ -156,7 +156,7 @@ jobs:
         expected-output: "-20 is a negative number"
         comparison-method: contains
         timeout: 10
-        max-score: 3
+        max-score: 5
     - name: advnzero
       id: advnzero
       uses: classroom-resources/autograding-io-grader@v1
@@ -168,7 +168,7 @@ jobs:
         expected-output: "You entered zero"
         comparison-method: contains
         timeout: 10
-        max-score: 4
+        max-score: 5
     - name: advmaxval
       id: advmaxval
       uses: classroom-resources/autograding-io-grader@v1
@@ -206,7 +206,7 @@ jobs:
           Output should be -4.162278 and 2.162278
         comparison-method: contains
         timeout: 10
-        max-score: 3
+        max-score: 5
     - name: advquadratic2
       id: advquadratic2
       uses: classroom-resources/autograding-io-grader@v1
@@ -220,7 +220,7 @@ jobs:
           Output should be -2.000000
         comparison-method: contains
         timeout: 10
-        max-score: 3
+        max-score: 5
     - name: advquadratic3
       id: advquadratic3
       uses: classroom-resources/autograding-io-grader@v1
@@ -248,7 +248,7 @@ jobs:
           Let's reduce sweets
         comparison-method: contains
         timeout: 10
-        max-score: 3
+        max-score: 5
     - name: meal2
       id: meal2
       uses: classroom-resources/autograding-io-grader@v1
@@ -262,7 +262,7 @@ jobs:
           Go for it
         comparison-method: contains
         timeout: 10
-        max-score: 3
+        max-score: 5
     - name: meal3
       id: meal3
       uses: classroom-resources/autograding-io-grader@v1
@@ -286,20 +286,15 @@ jobs:
         NEGATIVE_RESULTS: "${{steps.negative.outputs.result}}"
         ENTROPY_RESULTS: "${{steps.entropy.outputs.result}}"
         ENTROPY2_RESULTS: "${{steps.entropy2.outputs.result}}"
-        ENTROPY3_RESULTS: "${{steps.entropy3.outputs.result}}"
         LARGER_RESULTS: "${{steps.larger.outputs.result}}"
         LARGER2_RESULTS: "${{steps.larger2.outputs.result}}"
-        LARGER3_RESULTS: "${{steps.larger3.outputs.result}}"
-        ADVPOSITIVE_RESULTS: "${{steps.advpositive.outputs.result}}"
         ADVNEGATIVE_RESULTS: "${{steps.advnegative.outputs.result}}"
         ADVNZERO_RESULTS: "${{steps.advnzero.outputs.result}}"
         ADVMAXVAL_RESULTS: "${{steps.advmaxval.outputs.result}}"
         ADVMAXVAL2_RESULTS: "${{steps.advmaxval2.outputs.result}}"
         ADVQUADRATIC_RESULTS: "${{steps.advquadratic.outputs.result}}"
         ADVQUADRATIC2_RESULTS: "${{steps.advquadratic2.outputs.result}}"
-        ADVQUADRATIC3_RESULTS: "${{steps.advquadratic3.outputs.result}}"
         MEAL1_RESULTS: "${{steps.meal1.outputs.result}}"
         MEAL2_RESULTS: "${{steps.meal2.outputs.result}}"
-        MEAL3_RESULTS: "${{steps.meal3.outputs.result}}"
       with:
-        runners: average,average2,positive,negative,entropy,entropy2,entropy3,larger,larger2,larger3,advpositive,advnegative,advnzero,advmaxval,advmaxval2,advquadratic,advquadratic2,advquadratic3,meal1,meal2,meal3
+        runners: average,average2,positive,negative,entropy,entropy2,larger,larger2,advnegative,advnzero,advmaxval,advmaxval2,advquadratic,advquadratic2,meal1,meal2
